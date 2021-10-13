@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My first three.js app</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div>
+      <canvas id="c"></canvas>
+      <div id="pause" class="hidden">
+        <div></div>
+        <div></div>
+      </div>
+      <div id="crosshair" class="hidden"></div>
+      <div id="mobileControls" class="hidden">
+        <div>
+          <div id="forward">
+            <img src="img/directionMobile.png" alt="forward" />
+          </div>
+        </div>
+        <div>
+          <div id="left"><img src="img/directionMobile.png" alt="left" /></div>
+          <div id="jump"><img src="img/directionMobile.png" alt="jump" /></div>
+          <div id="right">
+            <img src="img/directionMobile.png" alt="right" />
+          </div>
+        </div>
+        <div>
+          <div id="back"><img src="img/directionMobile.png" alt="back" /></div>
+        </div>
+      </div>
+      <div id="menu">
+        <div id="loader">
+          <img src="img/startButtonBird.png" alt="" />
+          Aan het laden<span>.</span><span>.</span><span>.</span>
+        </div>
+        <div id="start" class="hidden">
+          <svg
+            width="371"
+            height="75"
+            viewBox="0 0 371 75"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            id=""
+          >
+            <path
+              d="M19.668 7.88865C16.834 8.08835 14.1448 9.2164 12.0164 11.0982C9.88796 12.9801 8.43897 15.5108 7.89358 18.299L2.14994 54.6993C1.91306 55.9704 1.95729 57.278 2.27952 58.5302C2.60175 59.7825 3.19418 60.949 4.0152 61.9479C4.83623 62.9468 5.86594 63.7539 7.03207 64.3125C8.19819 64.8711 9.47245 65.1677 10.7654 65.1814L360.883 72.9641C362.129 73.0829 363.386 72.906 364.551 72.4478C365.716 71.9895 366.756 71.2628 367.587 70.3267C368.418 69.3907 369.017 68.2717 369.334 67.0607C369.651 65.8498 369.678 64.5811 369.412 63.3578L360.998 11.6651C360.486 8.91831 359.019 6.44125 356.856 4.67254C354.693 2.90382 351.974 1.9576 349.18 2.00146L19.668 7.88865Z"
+              fill="white"
+              stroke="black"
+              stroke-width="2.15386"
+            />
+          </svg>
+          <img src="img/startButtonBird.png" alt="" />
+          <div>Naar het clubhuis</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./js/main.js"></script>
+  </body>
+</html>
