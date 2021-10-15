@@ -208,30 +208,50 @@ document.body.addEventListener(
     }
     if (event.target === canvas) {
       if (intersects[0]) {
+        if (intersects[1]) {
+          if (intersects[1].object.name == "lijst_71") {
+            window.open(
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf",
+              "_blank"
+            );
+          }
+        }
         switch (intersects[0].object.name) {
           case "lijst_68":
             window.open(
-              "../kleurplaten/kleurplaten Pim & Pom staand_1.pdf",
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom%20staand_1.pdf",
               "_blank"
             );
             break;
           case "lijst_70":
-            window.open("../kleurplaten/kleurplaten Pim & Pom_4.pdf", "_blank");
+            window.open(
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf",
+              "_blank"
+            );
             break;
-          case "lijst_70001":
-            window.open("../kleurplaten/kleurplaten Pim & Pom_4.pdf", "_blank");
+          case "lijst_71":
+            window.open(
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf",
+              "_blank"
+            );
             break;
           case "lijst_72":
-            window.open("../kleurplaten/kleurplaten Pim & Pom_1.pdf", "_blank");
+            window.open(
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_1.pdf",
+              "_blank"
+            );
             break;
           case "lijst_67":
             window.open(
-              "../kleurplaten/kleurplaten Pim & Pom staand_2.pdf",
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom%20staand_2.pdf",
               "_blank"
             );
             break;
           case "lijst_66":
-            window.open("../kleurplaten/kleurplaten Pim & Pom_3.pdf", "_blank");
+            window.open(
+              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_3.pdf",
+              "_blank"
+            );
             break;
         }
       }
@@ -440,7 +460,7 @@ scene.background = new THREE.Color("black");
         if (
           child.name === "lijst_68" ||
           child.name === "lijst_70" ||
-          child.name === "lijst_70001" ||
+          child.name === "lijst_71" ||
           child.name === "lijst_72" ||
           child.name === "lijst_67" ||
           child.name === "lijst_66"
@@ -561,11 +581,16 @@ function render() {
       loader.classList.add("hidden");
       startButton.classList.remove("hidden");
       crosshair.classList.remove("hidden");
+      if (intersects[1]) {
+        if (intersects[1].object.name === "lijst_71") {
+          intersects[1].object.scale.set(1, 1, 1);
+        }
+      }
 
       if (
         intersects[0].object.name === "lijst_68" ||
         intersects[0].object.name === "lijst_70" ||
-        intersects[0].object.name === "lijst_70001" ||
+        intersects[0].object.name === "lijst_71" ||
         intersects[0].object.name === "lijst_72" ||
         intersects[0].object.name === "lijst_67" ||
         intersects[0].object.name === "lijst_66"
