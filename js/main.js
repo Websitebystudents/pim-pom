@@ -415,39 +415,42 @@ scene.background = new THREE.Color("black");
 
 {
   const gltfLoader = new GLTFLoader();
-  gltfLoader.load("../model/pim_pom_clubhuis_6.gltf", (gltf) => {
-    root = gltf.scene;
-    scene.add(root);
+  gltfLoader.load(
+    "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/model/pim_pom_clubhuis_6.gltf",
+    (gltf) => {
+      root = gltf.scene;
+      scene.add(root);
 
-    camera.lookAt(0, 2, 0);
-    cameraFront.lookAt(0, 0, 0);
-    cameraLeft.lookAt(-2000, 0, 0);
-    cameraRight.lookAt(2000, 0, 0);
-    cameraUp.lookAt(0, 0, 0);
-    cameraDown.lookAt(0, 0, 0);
-    root.children.forEach((child) => {
-      if (child.name === "Floor") {
-        var groundMaterial = child.material;
-        var mesh = new THREE.Mesh(
-          new THREE.PlaneBufferGeometry(15, 15),
-          groundMaterial
-        );
-        mesh.rotation.x = -Math.PI / 2;
-        scene.add(mesh);
-      }
-      if (
-        child.name === "lijst_68" ||
-        child.name === "lijst_70" ||
-        child.name === "lijst_70001" ||
-        child.name === "lijst_72" ||
-        child.name === "lijst_67" ||
-        child.name === "lijst_66"
-      ) {
-        lijstjeslijst.push(child);
-      }
-    });
-    setInterval(clickableInterval, 25);
-  });
+      camera.lookAt(0, 2, 0);
+      cameraFront.lookAt(0, 0, 0);
+      cameraLeft.lookAt(-2000, 0, 0);
+      cameraRight.lookAt(2000, 0, 0);
+      cameraUp.lookAt(0, 0, 0);
+      cameraDown.lookAt(0, 0, 0);
+      root.children.forEach((child) => {
+        if (child.name === "Floor") {
+          var groundMaterial = child.material;
+          var mesh = new THREE.Mesh(
+            new THREE.PlaneBufferGeometry(15, 15),
+            groundMaterial
+          );
+          mesh.rotation.x = -Math.PI / 2;
+          scene.add(mesh);
+        }
+        if (
+          child.name === "lijst_68" ||
+          child.name === "lijst_70" ||
+          child.name === "lijst_70001" ||
+          child.name === "lijst_72" ||
+          child.name === "lijst_67" ||
+          child.name === "lijst_66"
+        ) {
+          lijstjeslijst.push(child);
+        }
+      });
+      setInterval(clickableInterval, 25);
+    }
+  );
 }
 
 // --------------
