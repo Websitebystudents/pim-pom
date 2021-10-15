@@ -198,6 +198,7 @@ document.body.addEventListener(
       event.target.parentElement === startButton
     ) {
       if (event.pointerType === "touch") {
+        document.body.requestFullscreen();
         controls.isLocked = true;
         menu.classList.add("hidden");
         mobileControls.classList.remove("hidden");
