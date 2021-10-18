@@ -13,13 +13,15 @@ const canvasDiv = document.querySelector("body > div");
 const mobileControls = document.querySelector("#mobileControls");
 const pause = document.querySelector("#pause");
 const startButton = document.querySelector("#start");
+const videoDiv = document.querySelector("#video");
 const crosshair = document.querySelector("#crosshair");
 const renderer = new THREE.WebGLRenderer({ canvas });
+let loaded = false;
 
 const fov = 45;
 const aspect = 2; // the canvas default
 const near = 0.1;
-const far = 100;
+const far = 14;
 let camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
 let cameraFront = new THREE.PerspectiveCamera(fov, aspect, near, 1);
 let cameraLeft = new THREE.PerspectiveCamera(fov, aspect, near, 1);
@@ -209,52 +211,52 @@ document.body.addEventListener(
     }
     if (event.target === canvas) {
       if (intersects[0]) {
-        if (intersects[1]) {
-          if (intersects[1].object.name == "lijst_71") {
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf",
-              "_blank"
-            );
+        intersects.forEach((intersect) => {
+          switch (intersect.object.name) {
+            case "lijst_68":
+              window.open(
+                "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom%20staand_1.pdf"
+              );
+              break;
+            case "lijst_70":
+              window.open(
+                "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf"
+              );
+              break;
+            case "lijst_71":
+              window.open(
+                "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf"
+              );
+              break;
+            case "lijst_72":
+              window.open(
+                "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_1.pdf"
+              );
+              break;
+            case "lijst_67":
+              window.open(
+                "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom%20staand_2.pdf"
+              );
+              break;
+            case "lijst_66":
+              window.open(
+                "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_3.pdf"
+              );
+              break;
+            case "tv":
+              videoDiv.classList.remove("hidden");
+              menu.classList.remove("hidden");
+              startButton.classList.add("lowerStartButton");
+              controls.isLocked = false;
+              controls.unlock();
+              controlsFront.unlock();
+              controlsLeft.unlock();
+              controlsRight.unlock();
+              controlsUp.unlock();
+              controlsDown.unlock();
+              break;
           }
-        }
-        switch (intersects[0].object.name) {
-          case "lijst_68":
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom%20staand_1.pdf",
-              "_blank"
-            );
-            break;
-          case "lijst_70":
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf",
-              "_blank"
-            );
-            break;
-          case "lijst_71":
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_4.pdf",
-              "_blank"
-            );
-            break;
-          case "lijst_72":
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_1.pdf",
-              "_blank"
-            );
-            break;
-          case "lijst_67":
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom%20staand_2.pdf",
-              "_blank"
-            );
-            break;
-          case "lijst_66":
-            window.open(
-              "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/kleurplaten/kleurplaten%20Pim%20&%20Pom_3.pdf",
-              "_blank"
-            );
-            break;
-        }
+        });
       }
     }
   },
@@ -437,7 +439,7 @@ scene.background = new THREE.Color("black");
 {
   const gltfLoader = new GLTFLoader();
   gltfLoader.load(
-    "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/model/pim_pom_clubhuis_6.gltf",
+    "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/model/pim_pom_clubhuis_7.gltf",
     (gltf) => {
       root = gltf.scene;
       scene.add(root);
@@ -464,7 +466,8 @@ scene.background = new THREE.Color("black");
           child.name === "lijst_71" ||
           child.name === "lijst_72" ||
           child.name === "lijst_67" ||
-          child.name === "lijst_66"
+          child.name === "lijst_66" ||
+          child.name === "tv"
         ) {
           lijstjeslijst.push(child);
         }
@@ -484,13 +487,13 @@ let lijstjeslijst = [];
 
 function clickableInterval() {
   if (grow === true) {
-    size = size + 0.01;
+    size = size + 0.005;
   } else {
-    size = size - 0.01;
+    size = size - 0.005;
   }
-  if (size > 0.7) {
+  if (size > 1) {
     grow = false;
-  } else if (size < 0.6) {
+  } else if (size < 0.9) {
     grow = true;
   }
   lijstjeslijst.forEach((lijst) => {
@@ -578,26 +581,27 @@ function render() {
       true
     );
 
-    if (intersects[0]) {
+    if (intersects[0] && loaded === false) {
       loader.classList.add("hidden");
       startButton.classList.remove("hidden");
       crosshair.classList.remove("hidden");
-      if (intersects[1]) {
-        if (intersects[1].object.name === "lijst_71") {
-          intersects[1].object.scale.set(1, 1, 1);
-        }
-      }
+      loaded = true;
+    }
 
-      if (
-        intersects[0].object.name === "lijst_68" ||
-        intersects[0].object.name === "lijst_70" ||
-        intersects[0].object.name === "lijst_71" ||
-        intersects[0].object.name === "lijst_72" ||
-        intersects[0].object.name === "lijst_67" ||
-        intersects[0].object.name === "lijst_66"
-      ) {
-        intersects[0].object.scale.set(1, 1, 1);
-      }
+    if (intersects[0]) {
+      intersects.forEach((intersect) => {
+        if (
+          intersect.object.name === "lijst_68" ||
+          intersect.object.name === "lijst_70" ||
+          intersect.object.name === "lijst_71" ||
+          intersect.object.name === "lijst_72" ||
+          intersect.object.name === "lijst_67" ||
+          intersect.object.name === "lijst_66" ||
+          intersect.object.name === "tv"
+        ) {
+          intersect.object.scale.set(1.1, 1.1, 1.1);
+        }
+      });
     }
 
     walkFront = intersectsFront[0] ? false : true;
