@@ -436,7 +436,7 @@ scene.background = new THREE.Color("black");
 {
   const gltfLoader = new GLTFLoader();
   gltfLoader.load(
-    "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/model/pim_pom_clubhuis_7.gltf",
+    "https://raw.githubusercontent.com/Websitebystudents/pim-pom/main/model/pim_pom_clubhuis_8.gltf",
     (gltf) => {
       root = gltf.scene;
       scene.add(root);

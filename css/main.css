@@ -228,13 +228,14 @@ canvas {
 
 #menu > #video {
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
 }
 
 iframe {
   max-width: 90vw;
+  max-height: 60vh;
 }
 
 .hidden {
