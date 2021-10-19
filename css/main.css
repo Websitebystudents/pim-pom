@@ -88,20 +88,23 @@ canvas {
 }
 
 #mobileControls > div > div {
-  height: 7vh;
-  width: 7vh;
+  height: 9.5vh;
+  width: 9.5vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(../img/directionMobile.png);
+  background-position: center;
+  background-size: cover;
 }
 
-#left > img {
+#left {
   transform: rotate(-90deg);
 }
-#right > img {
+#right {
   transform: rotate(90deg);
 }
-#back > img {
+#back {
   transform: rotate(180deg);
 }
 
@@ -228,6 +231,10 @@ canvas {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+iframe {
+  max-width: 90vw;
 }
 
 .hidden {

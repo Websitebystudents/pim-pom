@@ -268,10 +268,7 @@ let acceptedKeys = ["KeyW", "KeyA", "KeyS", "KeyD", "Space"];
 var interval;
 
 const onKeyDown = function (event) {
-  if (event.code === "Escape" && menu.classList.contains("hidden")) {
-    menu.classList.remove("hidden");
-    controls.isLocked = !controls.isLocked;
-  } else if (
+  if (
     controls.isLocked === true &&
     !keysDown.includes(event.code) &&
     acceptedKeys.includes(event.code)
